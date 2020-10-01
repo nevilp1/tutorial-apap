@@ -5,6 +5,13 @@ public class HotelModel {
         return idHotel;
     }
 
+    public HotelModel(String idHotel, String namaHotel, String alamat, String noTelepon) {
+        this.idHotel = idHotel;
+        this.namaHotel = namaHotel;
+        this.alamat = alamat;
+        this.noTelepon = noTelepon;
+    }
+
     public void setIdHotel(String idHotel) {
         this.idHotel = idHotel;
     }
