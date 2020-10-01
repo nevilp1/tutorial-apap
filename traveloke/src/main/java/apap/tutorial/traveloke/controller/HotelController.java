@@ -60,30 +60,31 @@ public class HotelController {
 
         // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
         model.addAttribute("hotel", hotel);
+        if(hotel == null) return "hotel-not-found";
 
         return "view-hotel";
     }
-    @GetMapping(value ="/hotel/view/id-hotel/{id}")
+    @GetMapping(value ="/hotel/view/id-hotel/{idHotel}")
     public String findByID(
-            @PathVariable(value = "id") String id,
+            @PathVariable(value = "idHotel") String idHotel,
             Model model
     ){
-        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         model.addAttribute("hotel", hotel);
         if(hotel != null)
             return "view-hotel";
         return "hotel-not-found";
     }
-    @GetMapping(value = "/hotel/update/id-hotel/{id}/no-telepon/{nomor}")
+    @GetMapping(value = "/hotel/update/id-hotel/{idHotel}/no-telepon/{nomor}")
     public String changeNumberByID(
-            @PathVariable(value = "id") String id,
+            @PathVariable(value = "idHotel") String idHotel,
             @PathVariable(value = "nomor") String nomor,
             Model model
     ){
-        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
 
         if(hotel == null) return "hotel-not-found";
-        
+
         // Update nomor baru pada object hotel
         hotel.setNoTelepon(nomor);
 
@@ -92,12 +93,12 @@ public class HotelController {
 
         return "update-nomor";
     }
-    @GetMapping(value = "/hotel/delete/id-hotel/{id}")
+    @GetMapping(value = "/hotel/delete/id-hotel/{idHotel}")
     public String deleteHotelByID(
-            @PathVariable(value = "id") String id,
+            @PathVariable(value = "idHotel") String idHotel,
             Model model
     ){
-        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
 
         if(hotel == null) return "hotel-not-found";
 
