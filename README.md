@@ -35,7 +35,7 @@ Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi <br/>
 Jawaban: Whitelabel Error Page, karena template yang diminta oleh controller dari program traveloke tidak ditemukan sehingga terjadi kegagalan pada saat rendering html. 
 
 2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat <br/>
-Jawaban: anotasi @Autowired merupakan implementasi dari konsep
+Jawaban: anotasi @Autowired merupakan implementasi dari konsep dependency injection. Autowired akan melakukan injection beans secara otomatis dengan melihat @Controller dan @Component yang ada di kelas lain.
 
 3. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
 http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom <br/>
