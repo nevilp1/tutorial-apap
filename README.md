@@ -27,6 +27,31 @@ Karena maven merupakan salah satu yang dapat dibuka di berbagai IDE. Maven juga 
 7. Apa perbedaan dari @RequestParam dan @PathVariable? Kapan sebaiknya menggunakan
 @RequestParam atau @PathVariable? <br/>
 @RequestParam digunakan untuk digunakan untuk mengextract query parameter, sedangkan @PathVariable digunakan untuk mengextract data dari URI. @RequestParam lebih 
+
+## Tutorial 2
+1. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
+http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxx <br/>
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi <br/>
+Jawaban: Whitelabel Error Page, karena template yang diminta oleh controller dari program traveloke tidak ditemukan sehingga terjadi kegagalan pada saat rendering html. 
+
+2. Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat <br/>
+Jawaban: anotasi @Autowired merupakan implementasi dari konsep dependency injection. Autowired akan melakukan injection beans secara otomatis dengan melihat @Controller dan @Component yang ada di kelas lain.
+
+3. Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut:
+http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom <br/>
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.<br/>
+Jawaban: Whitelabel Error Page, karena bagian controller meminta request parameter noTelepon, akan tetapi nomor telepon tidak diberikan pada link tersebut.
+
+4. Jika Papa APAP ingin melihat Hotel dengan nama Papa APAP, link apa yang harus
+diakses?<br/>
+Jawaban: http://localhost:8080/hotel/view?idHotel=1
+
+5. Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses
+http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.<br/>
+Jawaban: Laman yang ditampilkan adalah informasi dua hotel, yaitu hotel yang baru saja dibuat dan hotel yang dibuat pada pertanyaan 1.<br/>
+Link foto: https://drive.google.com/drive/folders/1t8_gz3OHKj_ro01pfi1UUOxjpQW8XR6z?usp=sharing
+
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
