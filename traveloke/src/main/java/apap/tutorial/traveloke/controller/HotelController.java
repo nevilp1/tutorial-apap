@@ -5,6 +5,8 @@ import apap.tutorial.traveloke.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
@@ -60,5 +62,42 @@ public class HotelController {
         model.addAttribute("hotel", hotel);
 
         return "view-hotel";
+    }
+    @GetMapping(value ="/hotel/view/id-hotel/{id}")
+    public String findByID(
+            @PathVariable(value = "id") String id,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        model.addAttribute("hotel", hotel);
+
+        return "view-hotel";
+    }
+    @GetMapping(value = "/hotel/update/id-hotel/{id}/no-telepon/{nomor}")
+    public String changeNumberByID(
+            @PathVariable(value = "id") String id,
+            @PathVariable(value = "nomor") String nomor,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        hotel.setNoTelepon(nomor);
+
+        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "update-nomor";
+    }
+    @GetMapping(value = "/hotel/delete/id-hotel/{id}")
+    public String deleteHotelByID(
+            @PathVariable(value = "id") String id,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(id);
+        model.addAttribute("hotel", hotel);
+
+        if(hotel == null) return "hotel-not-found";
+        hotelService.getHotelList().remove(hotel);
+        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
+        return "delete-hotel";
     }
 }
