@@ -70,8 +70,9 @@ public class HotelController {
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(id);
         model.addAttribute("hotel", hotel);
-
-        return "view-hotel";
+        if(hotel != null)
+            return "view-hotel";
+        return "hotel-not-found";
     }
     @GetMapping(value = "/hotel/update/id-hotel/{id}/no-telepon/{nomor}")
     public String changeNumberByID(
@@ -80,6 +81,10 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(id);
+
+        if(hotel == null) return "hotel-not-found";
+        
+        // Update nomor baru pada object hotel
         hotel.setNoTelepon(nomor);
 
         // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
@@ -93,11 +98,13 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(id);
-        model.addAttribute("hotel", hotel);
 
         if(hotel == null) return "hotel-not-found";
-        hotelService.getHotelList().remove(hotel);
+
         // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
+        model.addAttribute("hotel", hotel);
+        hotelService.getHotelList().remove(hotel);
+
         return "delete-hotel";
     }
 }
