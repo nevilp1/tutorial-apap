@@ -86,7 +86,7 @@ public class HotelController {
         if(hotel == null) return "hotel-not-found";
 
         // Update nomor baru pada object hotel
-        hotel.setNoTelepon(nomor);
+        hotelService.changeNumber(hotel, nomor);
 
         // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
         model.addAttribute("hotel", hotel);
@@ -104,7 +104,7 @@ public class HotelController {
 
         // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
         model.addAttribute("hotel", hotel);
-        hotelService.getHotelList().remove(hotel);
+        hotelService.deleteHotel(hotel);
 
         return "delete-hotel";
     }

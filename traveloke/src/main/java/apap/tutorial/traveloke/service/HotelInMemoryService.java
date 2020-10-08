@@ -32,4 +32,14 @@ public class HotelInMemoryService implements HotelService{
         }
         return null;
     }
+
+    @Override
+    public void deleteHotel(HotelModel hotel) {
+        listHotel.remove(hotel);
+    }
+
+    @Override
+    public void changeNumber(HotelModel hotel, String nomor) {
+        hotel.setNoTelepon(nomor);
+    }
 }
