@@ -12,7 +12,10 @@ public interface HotelService {
     List<HotelModel> getHotelList();
 
     // Method untuk mendapatkan data sebuah hotel berdasarkan id hotel
-    HotelModel getHotelByIdHotel(String idHotel);
+    HotelModel getHotelByIdHotel(Long idHotel);
+
+    // Method untuk update hotel
+    HotelModel updateHotel(HotelModel hotel);
 
 
 }
