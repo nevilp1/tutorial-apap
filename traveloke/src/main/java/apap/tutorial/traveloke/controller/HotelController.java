@@ -70,8 +70,36 @@ public class HotelController {
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+        Integer size = kamarService.getSizeList(idHotel);
+
+        model.addAttribute("size", size);
         model.addAttribute("hotel", hotel);
         model.addAttribute("listKamar", listKamar);
         return "view-hotel";
+    }
+
+    @RequestMapping("/hotel/viewall")
+    public String viewAllHotel(
+            Model model
+    ) {
+        List<HotelModel> listHotel = hotelService.getHotelList();
+
+        // Add variabel semua HotelModel ke 'listHotel' untuk dirender pada thymeleaf
+        model.addAttribute("listHotel", listHotel);
+
+        // Return view template yang diinginkan
+        return "viewall-hotel";
+
+    }
+    @GetMapping(value = "hotel/delete/{idHotel}")
+    public String deleteHotelWithPathVariable(
+            @PathVariable(value = "idHotel") Long idHotel,
+            Model model
+    ){
+        // Menghapus Hotel sesuai dengan idHotel
+        HotelModel hotel = hotelService.deleteHotel(idHotel);
+
+        model.addAttribute("hotel", hotel);
+        return "delete-hotel";
     }
 }

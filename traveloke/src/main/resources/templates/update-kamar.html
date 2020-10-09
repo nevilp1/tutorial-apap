@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Kamar</title>
+</head>
+<body>
+<h2 th:text="'Selamat! Kamar berhasil di update.'"></h2>
+<h3 th:text="'ID: '+${kamar.noKamar}"></h3>
+<h3 th:text="'Nama: '+${kamar.namaKamar}"></h3>
+<h3 th:if="${kamar.tipe == 0}">Tipe: Deluxe </h3>
+<h3 th:if="${kamar.tipe == 1}">Tipe: Executive </h3>
+<h3 th:if="${kamar.tipe == 2}">Tipe: President Suite </h3>
+<h3 th:text="'Kapasitas: '+${kamar.kapasitasKamar}"></h3>
+<a href="/">Kembali</a>
+
+</body>
+</html>

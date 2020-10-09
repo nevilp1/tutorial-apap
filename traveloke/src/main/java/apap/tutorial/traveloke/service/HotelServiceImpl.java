@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @Service
@@ -21,10 +22,6 @@ public class HotelServiceImpl implements HotelService{
         hotelDb.save(hotel);
     }
 
-    @Override
-    public List<HotelModel> getHotelList() {
-        return hotelDb.findAll();
-    }
 
     @Override
     public HotelModel getHotelByIdHotel(Long idHotel) {
@@ -45,4 +42,21 @@ public class HotelServiceImpl implements HotelService{
             return null;
         }
     }
+    @Override
+    public List<HotelModel> getHotelList(){
+        return hotelDb.findByOrderByIdDesc();
+    }
+
+    @Override
+    public HotelModel deleteHotel(Long id){
+        HotelModel var = hotelDb.findById(id).get();
+        if(var.getListKamar().size() == 0){
+            hotelDb.deleteById(id);
+            return var;
+        }else{
+            return null;
+        }
+    }
+
+
 }

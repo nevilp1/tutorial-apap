@@ -5,8 +5,7 @@
     <title>Delete Hotel</title>
 </head>
 <body>
-<h3 th:if="${hotel == null}"> Hotel tidak bisa dihapus karena memiliki kamar. </h3>
-<h3 th:unless="${hotel == null}" th:text="'Hotel dengan Id Hotel ' + ${idHotel} + ' berhasil dihapus'"> </h3>
+<h3 th:text="'Kamar dengan nomor Kamar ' + ${noKamar} + ' berhasil dihapus'"> </h3>
 <a href="/hotel/viewall">Kembali</a>
 
 </body>

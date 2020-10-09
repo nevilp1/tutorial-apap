@@ -17,5 +17,8 @@ public interface HotelService {
     // Method untuk update hotel
     HotelModel updateHotel(HotelModel hotel);
 
+    HotelModel deleteHotel(Long id);
+
+
 
 }
