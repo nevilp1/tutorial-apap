@@ -20,5 +20,4 @@ public interface HotelService {
     HotelModel deleteHotel(Long id);
 
 
-
 }

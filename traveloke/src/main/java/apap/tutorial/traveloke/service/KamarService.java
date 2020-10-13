@@ -17,4 +17,6 @@ public interface KamarService{
 
     Integer getSizeList(Long idHotel);
 
+    List<KamarModel> getKamarByNamaKamarDanKapasitas(String nama, Integer kapasitasKamar);
+
 }
