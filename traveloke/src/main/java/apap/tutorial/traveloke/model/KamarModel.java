@@ -78,7 +78,7 @@ public class KamarModel implements Serializable {
     private HotelModel hotel;
 
     @OneToMany(mappedBy = "kamar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<KamarModel> listReview;
+    private List<ReviewModel> listReview;
 
 
 }
