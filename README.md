@@ -83,9 +83,10 @@ th: object digunakan untuk menspesifikasi objek yang nantinya akan dikirim melal
 3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?<br>
 Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah digunakan ketika kita fokus pada suatu objek tertentu. Notasi * akan banyak ditemukan ketika kita mengerjakan suatu form dengan thymeleaf. Notasi ${} merupakan notasi yang umum digunakan untuk setiap pemanggilan thymeleaf, sehingga tidak ada kondisi spesifik untuk menggunakanya.  
 4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
-Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates dan ditampilkan pada navbar.
+Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates untuk bisa ditampilkan pada navbar. 
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
 - [ ] Cara melakukan Binding List
+- [ ] Apa itu itemStat? Kapan harus menggunakanya?
 
