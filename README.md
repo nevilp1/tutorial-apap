@@ -75,8 +75,17 @@ Jawaban: FetchType merupakan module yang berada pada javax.persistence yang berg
          Sedangkan kardinalitas One-To-Many, pengambilan data menggunakan FetchType.LAZY. 
          CascadeType.ALL merupakan respon untuk constraint terhadap perubahan data parent terhadap child pada database. Jika menggunakan metode ini, maka semua perubahan data yang terjadi pada parent, akan mempengaruhi child.
 
-
+## Tutorial 4
+1. Jelaskan perbedaan th:include dan th:replace! <br>
+th:include digunakan untuk memasukan fragment ke dalam sebuah tag HTML, sedangkan th:replace digunakan untuk  menimpa sebuah tag dengan fragment
+2. Jelaskan apa fungsi dari th:object! <br>
+th: object digunakan untuk menspesifikasi objek yang nantinya akan dikirim melalui form
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?<br>
+Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah digunakan ketika kita fokus pada suatu objek tertentu. Notasi * akan banyak ditemukan ketika kita mengerjakan suatu form dengan thymeleaf. Notasi ${} merupakan notasi yang umum digunakan untuk setiap pemanggilan thymeleaf, sehingga tidak ada kondisi spesifik untuk menggunakanya.  
+4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
+Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates dan ditampilkan pada navbar.
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
+- [ ] Cara melakukan Binding List
 
