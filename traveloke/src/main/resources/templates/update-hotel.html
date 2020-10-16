@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update hotel</title>
+</head>
+<body>
+<h2 th:text="'Selamat! Hotel berhasil di update.'"></h2>
+<h3 th:text="'ID: '+${hotel.id}"></h3>
+<h3 th:text="'Nama hotel: '+${hotel.namaHotel}"></h3>
+<h3 th:text="'Nomor telp: ' +${hotel.nomorTelepon}"></h3>
+<h3 th:text="'Alamat: '+${hotel.alamat}"></h3>
+<a href="/">Kembali</a>
+
+</body>
+</html>

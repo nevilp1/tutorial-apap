@@ -51,6 +51,30 @@ http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga b
 Jawaban: Laman yang ditampilkan adalah informasi dua hotel, yaitu hotel yang baru saja dibuat dan hotel yang dibuat pada pertanyaan 1.<br/>
 Link foto: https://drive.google.com/drive/folders/1t8_gz3OHKj_ro01pfi1UUOxjpQW8XR6z?usp=sharing
 
+## Tutorial 3
+1. Pada class KamarDb , terdapat method findAllByHotelId , apakah kegunaan dari method tersebut? <br>
+Jawaban: Method findAllByHotelId berguna untuk memperoleh list berisi object kamar yang berasosiasi dengan sebuah ID hotel. Method ini me-extend JPA Repository untuk melakukan select dari database kamar tanpa menggunakan query.
+
+2. Pada class HotelController , jelaskan perbedaan method addHotelFormPage dan addHotelSubmit ?<br>
+Jawaban: AddHotelFormPage merupakan method bertipe GET yang digunakan untuk membuat objek baru yaitu Hotel. Sedangkan addHotelSubmit merupakan method bertipe POST yang digunakan untuk mengambil seluruh nilai dari form yang diisi saat menambahkan objek baru dan memasukkan data tersebut ke dalam database.
+3. Jelaskan kegunaan dari JPA Repository ! <br>
+Jawaban: JPA Repository merupakan sebuah interface berisi method-method yang membantu sebuah aplikasi melakukan CRUD ke dalam database. Umumnya, interface ini digunakan untuk menghubungkan dan menyimpan sebuah objek dengan idnya ke dalam repository.
+4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara HotelModel dan KamarModel dibuat? <br>
+Jawaban: @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+             private List<KamarModel> listKamar; <br><br>
+             @ManyToOne(fetch = FetchType.EAGER,optional = false)
+                 @JoinColumn(name = "hotelId", referencedColumnName = "id", nullable = false)
+                 @OnDelete(action = OnDeleteAction.CASCADE)
+                 @JsonIgnore
+                 private HotelModel hotel; <br><br>
+Pada kode di atas, kita membuat relasi One-To-Many antara HotelModel dan KamarModel. Sebuah object hotel diasosiasikan dengan sebuah list kamar dan berlaku sebaliknya untuk banyak list kamar berasosiasi dengan sebuah hotel.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL , dan FetchType.EAGER ! <br>
+Jawaban: FetchType merupakan module yang berada pada javax.persistence yang berguna untuk mengambil data dari database. Umumnya, penggunaan FetchType bergantung pada kardinalitas yang berlaku pada dua objek. 
+         Jika kardinalitas Many-To-One, maka pengambilan data menggunakan FetchType.EAGER, karena FetchType ini akan memuat setiap field yang ada pada child sekalipun belum dibutuhkan. 
+         Sedangkan kardinalitas One-To-Many, pengambilan data menggunakan FetchType.LAZY. 
+         CascadeType.ALL merupakan respon untuk constraint terhadap perubahan data parent terhadap child pada database. Jika menggunakan metode ini, maka semua perubahan data yang terjadi pada parent, akan mempengaruhi child.
+
 
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
