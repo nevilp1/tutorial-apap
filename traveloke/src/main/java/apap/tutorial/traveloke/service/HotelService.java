@@ -20,7 +20,4 @@ public interface HotelService {
     HotelModel deleteHotel(Long id);
 
 
-    void deleteHotel(HotelModel hotel);
-
-    void changeNumber(HotelModel hotel, String nomor);
 }

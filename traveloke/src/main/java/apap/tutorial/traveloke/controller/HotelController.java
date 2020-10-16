@@ -100,9 +100,7 @@ public class HotelController {
         HotelModel hotel = hotelService.deleteHotel(idHotel);
 
         model.addAttribute("hotel", hotel);
-
-        hotelService.deleteHotel(hotel);
-
+        
         return "delete-hotel";
     }
 }
