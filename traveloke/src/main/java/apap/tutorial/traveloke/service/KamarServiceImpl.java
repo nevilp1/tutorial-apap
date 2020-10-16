@@ -46,13 +46,17 @@ public class KamarServiceImpl implements KamarService{
         }
     }
     @Override
-    public KamarModel deleteKamar(Long nomorKamar){
-        KamarModel var = kamarDb.findById(nomorKamar).get();
-        kamarDb.deleteById(nomorKamar);
-        return var;
+    public KamarModel deleteKamar(KamarModel kamar){
+        kamarDb.delete(kamar);
+        return kamar;
     }
     @Override
     public Integer getSizeList(Long idHotel){
         return kamarDb.findByHotelId(idHotel).size();
+    }
+
+    @Override
+    public void deleteKamarId(Long id) {
+        kamarDb.deleteById(id);
     }
 }
