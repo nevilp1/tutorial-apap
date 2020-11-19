@@ -14,4 +14,5 @@ public interface HotelRestService {
     void deleteHotel(Long idHotel);
     Mono<String> getStatus(Long idHotel);
     Mono<HotelDetail> postStatus();
+
 }
