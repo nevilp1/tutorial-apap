@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Form Add Kamar</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <h3>Tambah Kamar</h3>
-<form th:action="@{/kamar/add}" th:object="${kamar}" method="POST">
-    <input type="hidden" th:field="*{hotel}"/>
-    Nama Kamar: <br>
-    <input type="text" name="namaKamar"/>
-    <br>
-    Tipe Kamar : <br>
-    <select name="tipe">
-        <option value="0">Deluxe</option>
-        <option value="1">Executive</option>
-        <option value="2">President Suite</option>
-    </select>
-    <br>
-    Kapasitas Kamar: <br>
-    <input type="number" name="kapasitasKamar"/>
-    <br>
-    <button type="submit"> Submit </button>
+<form th:action="@{/kamar/add/}" th:object="${kamar}" method="POST">
+
+    <table class="table" >
+        <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Tipe kamar</th>
+            <th>Kapasitas</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="kamar, itemStat : *{hotel}">
+
+            <td><input th:field="*{hotel[__${itemStat.index}__].namaKamar}" /></td>
+            <td><input th:field="*{hotel[__${itemStat.index}__].kapasitasKamar}" /></td>
+            <td>
+            <select class="form-control" name="tipe" th:field="*{hotel[__${itemStat.index}__].tipe}">
+                <option value="0">Deluxe</option>
+                <option value="1">Executive</option>
+                <option value="2">President Suite</option>
+            </select>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/kamar/add/}+${idHotel}" class="btn btn-primary" name="add_baris"> Add baris </a>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
 
 </form>
 </body>

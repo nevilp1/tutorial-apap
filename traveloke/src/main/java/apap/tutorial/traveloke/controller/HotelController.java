@@ -14,6 +14,7 @@ import java.util.List;
 
 @Controller
 public class HotelController {
+    String statusHalaman;
     @Qualifier("hotelServiceImpl")
     @Autowired
     private HotelService hotelService;
@@ -22,12 +23,16 @@ public class HotelController {
     private KamarService kamarService;
 
     @GetMapping("/")
-    private String home(){
+    private String home(Model model){
+        statusHalaman = "Home";
+        model.addAttribute("statusHalaman", statusHalaman);
         return "home";
     }
 
     @GetMapping("/hotel/add")
     public String addHotelFormPage(Model model){
+        statusHalaman = "Form add hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         model.addAttribute("hotel", new HotelModel());
         return "form-add-hotel";
     }
@@ -37,6 +42,9 @@ public class HotelController {
             @ModelAttribute HotelModel hotel,
             Model model
     ){
+        statusHalaman = "Form add hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
+
         hotelService.addHotel(hotel);
         model.addAttribute("idHotel", hotel.getId());
         return "add-hotel";
@@ -48,6 +56,8 @@ public class HotelController {
             Model model
 
     ){
+        statusHalaman = "Form change hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         model.addAttribute("hotel", hotel);
         return "form-update-hotel";
@@ -58,6 +68,8 @@ public class HotelController {
             @ModelAttribute HotelModel hotel,
             Model model
     ){
+        statusHalaman = "Form change hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         HotelModel hotelUpdated = hotelService.updateHotel(hotel);
         model.addAttribute("hotel", hotel);
         return "update-hotel";
@@ -68,10 +80,13 @@ public class HotelController {
             @RequestParam(value = "idHotel") Long idHotel,
             Model model
     ){
+
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
         Integer size = kamarService.getSizeList(idHotel);
 
+        statusHalaman = "View hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         model.addAttribute("size", size);
         model.addAttribute("hotel", hotel);
         model.addAttribute("listKamar", listKamar);
@@ -86,7 +101,8 @@ public class HotelController {
 
         // Add variabel semua HotelModel ke 'listHotel' untuk dirender pada thymeleaf
         model.addAttribute("listHotel", listHotel);
-
+        statusHalaman = "View all hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         // Return view template yang diinginkan
         return "viewall-hotel";
 
@@ -98,7 +114,8 @@ public class HotelController {
     ){
         // Menghapus Hotel sesuai dengan idHotel
         HotelModel hotel = hotelService.deleteHotel(idHotel);
-
+        statusHalaman = "Delete hotel";
+        model.addAttribute("statusHalaman", statusHalaman);
         model.addAttribute("hotel", hotel);
 
         return "delete-hotel";

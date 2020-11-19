@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Hotel</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <h3 th:if="${hotel == null}"> Hotel tidak bisa dihapus karena memiliki kamar. </h3>
 <h3 th:unless="${hotel == null}" th:text="'Hotel dengan Id Hotel ' + ${idHotel} + ' berhasil dihapus'"> </h3>
 <a href="/hotel/viewall">Kembali</a>

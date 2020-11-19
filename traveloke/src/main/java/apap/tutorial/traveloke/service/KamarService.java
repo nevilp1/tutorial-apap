@@ -13,8 +13,9 @@ public interface KamarService{
 
     KamarModel kamarUpdate(KamarModel kamar);
 
-    KamarModel deleteKamar(Long nomorKamar);
+    KamarModel deleteKamar(KamarModel kamar);
 
     Integer getSizeList(Long idHotel);
 
+    void deleteKamarId(Long id);
 }
