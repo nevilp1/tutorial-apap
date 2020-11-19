@@ -8,40 +8,57 @@
 </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
-<h3>Tambah Kamar</h3>
-<form th:action="@{/kamar/add/}" th:object="${kamar}" method="POST">
+<div class="container-fluid" style="width: 95%;">
+    <h3>Tambah Kamar</h3>
+    <form th:action="@{/kamar/add/{id}(id=${idHotel})}" th:object="${hotel}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" style="text-align: center; vertical-align:middle;"> Nama </th>
+                <th scope="col" style="text-align: center; vertical-align:middle;"> Tipe Kamar </th>
+                <th scope="col" style="text-align: center; vertical-align:middle;"> Kapasitas Kamar </th>
+                <th scope="col" style="text-align: center" width="10%">
+                    <button type="submit" class="btn btn-block btn-primary" name="addRow" style="padding: 5px 12px;">Tambah</button></th>
 
-    <table class="table" >
-        <thead>
-        <tr>
-            <th>Nama</th>
-            <th>Tipe kamar</th>
-            <th>Kapasitas</th>
-            <th>Aksi</th>
-        </tr>
-        </thead>
-        <tbody>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="kamar, indexStat : *{listKamar}">
+                <td  style="text-align: center">
+                    <input type="text" name="nama" th:field="*{listKamar[__${indexStat.index}__].namaKamar}" class="form-control"/>
+                </td>
 
-        <tr th:each="kamar, itemStat : *{hotel}">
+                <td>
+                    <div class="form-group">
+                        <select th:field="*{listKamar[__${indexStat.index}__].tipe}" name="tipe" class="form-control">
+                            <option value="0">Deluxe</option>
+                            <option value="1">Executive</option>
+                            <option value="2">President Suite</option>
+                        </select>
+                    </div>
+                </td>
 
-            <td><input th:field="*{hotel[__${itemStat.index}__].namaKamar}" /></td>
-            <td><input th:field="*{hotel[__${itemStat.index}__].kapasitasKamar}" /></td>
-            <td>
-            <select class="form-control" name="tipe" th:field="*{hotel[__${itemStat.index}__].tipe}">
-                <option value="0">Deluxe</option>
-                <option value="1">Executive</option>
-                <option value="2">President Suite</option>
-            </select>
-            </td>
+                <td  style="text-align: center">
+                    <input type="number" name="kapasitasKamar" th:field="*{listKamar[__${indexStat.index}__].kapasitasKamar}" class="form-control"/>
+                </td>
 
-        </tr>
-        </tbody>
-    </table>
-    <a th:href="@{/kamar/add/}+${idHotel}" class="btn btn-primary" name="add_baris"> Add baris </a>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-
-
-</form>
+                <td>
+                    <button type="submit" name="removeRow" th:value="${indexStat.index}" class="btn btn-block btn-danger" >Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="submit" name="save" class="btn btn-block btn-success"> Simpan </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </form>
+</div>
 </body>
 </html>
