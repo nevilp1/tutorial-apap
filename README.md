@@ -82,19 +82,36 @@ th:include digunakan untuk memasukan fragment ke dalam sebuah tag HTML, sedangka
 th: object digunakan untuk menspesifikasi objek yang nantinya akan dikirim melalui form
 3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?<br>
 Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah digunakan ketika kita fokus pada suatu objek tertentu. Notasi * akan banyak ditemukan ketika kita mengerjakan suatu form dengan thymeleaf. Notasi ${} merupakan notasi yang umum digunakan untuk setiap pemanggilan thymeleaf, sehingga tidak ada kondisi spesifik untuk menggunakanya. Dalam beberapa kasus, penggunaan * dan ${} tidak jauh berbeda, seperti pada baris kode berikut:
+```html
 <div class="box">
   <p><b>Full Name:</b> <span th:utext="*{person.fullName}"></span></p>
   <p><b>Email:</b> <span th:utext="*{person.email}"></span></p>
 </div>
-<!--/* Same as: */-->
 <div class="box">
   <p><b>Full Name:</b> <span th:utext="${person.fullName}"></span></p>
   <p><b>Email:</b> <span th:utext="${person.email}"></span></p>
 </div>
+```
 
 <br>
 4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
 Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates untuk bisa ditampilkan pada navbar. Saya menggunakan thymeleaf, yaitu dengan syntax th:text${nama_variable} untuk memanggil variabel yang dikirimkan oleh controller pada navbar yang telah dibuat.
+
+## Tutorial 5
+1. Apa itu Postman? Apa kegunaannya? <br>
+Postman merupakan aplikasi yang berguna sebagai REST Client untuk uji coba REST API. Postman biasa digunakan untuk membuat dan menguji API.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty. <br>
+@JsonIgnoreProperties  digunakan untuk mengabaikan beberapa properti atau atribut dari sebuah objek pada saat membaca JSON.
+@JsonProperty merupakan anotasi yang berguna untuk mengisi atribut objek yang berasal dari relasi objek dengan objek lain
+
+3. Apa kegunaan atribut WebClient?<br>
+Atribut WebClient digunakan untuk menghubungkan service dengan API melalui URl.
+
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? <br>
+ResponseEntity class yang berfungsi untuk mengirimkan HTTP response yang berisi status code, headers dan body. Binding result merupakan suatu interface yang merepresentasikan hasil dari proses binding objek.
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
