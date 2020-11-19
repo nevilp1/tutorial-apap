@@ -95,6 +95,7 @@ Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah
 <br>
 4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
 Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates untuk bisa ditampilkan pada navbar. Saya menggunakan thymeleaf, yaitu dengan syntax th:text${nama_variable} untuk memanggil variabel yang dikirimkan oleh controller pada navbar yang telah dibuat.
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
