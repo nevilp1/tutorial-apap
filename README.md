@@ -82,7 +82,7 @@ th:include digunakan untuk memasukan fragment ke dalam sebuah tag HTML, sedangka
 th: object digunakan untuk menspesifikasi objek yang nantinya akan dikirim melalui form
 3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?<br>
 Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah digunakan ketika kita fokus pada suatu objek tertentu. Notasi * akan banyak ditemukan ketika kita mengerjakan suatu form dengan thymeleaf. Notasi ${} merupakan notasi yang umum digunakan untuk setiap pemanggilan thymeleaf, sehingga tidak ada kondisi spesifik untuk menggunakanya. Dalam beberapa kasus, penggunaan * dan ${} tidak jauh berbeda, seperti pada baris kode berikut:
-<!-- Write your comments here 
+```html
 <div class="box">
   <p><b>Full Name:</b> <span th:utext="*{person.fullName}"></span></p>
   <p><b>Email:</b> <span th:utext="*{person.email}"></span></p>
@@ -91,7 +91,7 @@ Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah
   <p><b>Full Name:</b> <span th:utext="${person.fullName}"></span></p>
   <p><b>Email:</b> <span th:utext="${person.email}"></span></p>
 </div>
--->
+```
 
 <br>
 4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
