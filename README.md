@@ -129,7 +129,7 @@ Otorisasi:
                 .antMatchers("/hotel/**").hasAuthority("RECEPTIONIST")
                 .antMatchers("/user/addUser").hasAuthority("ADMIN")
                 .antMatchers("/kamar/**").hasAuthority("RECEPTIONIST")
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()   
   
 2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.<br>
 BCryptPasswordEncoder merupakan sebuah object yang memiliki fungsi encode untuk mengenkripsi String password menjadi kode hash yang unik.
@@ -137,7 +137,7 @@ BCryptPasswordEncoder merupakan sebuah object yang memiliki fungsi encode untuk 
 UUID merupakan ID sebesar 128-bit yang merupakan hasil dari suatu hash function. Penggunaan UUID pada tutorial kali adalah sebagai identifier untuk mengidentifikasi suatu objek user.
 4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah
 memiliki class UserRoleServiceImpl.java?<br>
-
+UserDetailsServiceImpl digunakan untuk menyimpan hasil otentikasi dan otorisasi berupa username dan password yang berasal dari database user karena class UserRoleServiceImpl hanya mengolah data yang ada pada database user. 
 
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
