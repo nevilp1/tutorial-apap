@@ -97,6 +97,21 @@ Notasi * digunakan untuk mendapatkan atribut dari th:object, umumnya lebih mudah
 4. Bagaimana kamu menyelesaikan latihan nomor 3? <br>
 Saya menyelesaikan nomor 3 dengan membuat variabel String yang didefininisikan pada banyak method sesuai dengan nama template yang dirender. Setelah itu, saya mengirimkan variabel String tersebut ke templates untuk bisa ditampilkan pada navbar. Saya menggunakan thymeleaf, yaitu dengan syntax th:text${nama_variable} untuk memanggil variabel yang dikirimkan oleh controller pada navbar yang telah dibuat.
 
+## Tutorial 5
+1. Apa itu Postman? Apa kegunaannya? <br>
+Postman merupakan aplikasi yang berguna sebagai REST Client untuk uji coba REST API. Postman biasa digunakan untuk membuat dan menguji API.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty. <br>
+@JsonIgnoreProperties  digunakan untuk mengabaikan beberapa properti atau atribut dari sebuah objek pada saat membaca JSON.
+@JsonProperty merupakan anotasi yang berguna untuk mengisi atribut objek yang berasal dari relasi objek dengan objek lain
+
+3. Apa kegunaan atribut WebClient?<br>
+Atribut WebClient digunakan untuk menghubungkan service dengan API melalui URl.
+
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? <br>
+ResponseEntity class yang berfungsi untuk mengirimkan HTTP response yang berisi status code, headers dan body. Binding result merupakan suatu interface yang merepresentasikan hasil dari proses binding objek.
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
