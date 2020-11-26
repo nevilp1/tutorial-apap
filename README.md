@@ -112,6 +112,15 @@ Atribut WebClient digunakan untuk menghubungkan service dengan API melalui URl.
 4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? <br>
 ResponseEntity class yang berfungsi untuk mengirimkan HTTP response yang berisi status code, headers dan body. Binding result merupakan suatu interface yang merepresentasikan hasil dari proses binding objek.
 
+## Tutorial 6
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda
+buat) konsep tersebut diimplementasi?<br>
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.<br>
+3. Jelaskan secara singkat apa itu UUID beserta penggunaannya!<br>
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah
+memiliki class UserRoleServiceImpl.java?<br>
+
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
