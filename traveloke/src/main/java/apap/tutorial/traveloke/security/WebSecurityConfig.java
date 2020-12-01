@@ -20,6 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/js/**").permitAll()
+                .antMatchers("/api/v1/**").permitAll()
                 .antMatchers("/hotel/**").hasAuthority("RECEPTIONIST")
                 .antMatchers("/user/addUser").hasAuthority("ADMIN")
                 .antMatchers("/kamar/**").hasAuthority("RECEPTIONIST")
