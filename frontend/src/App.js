@@ -22,8 +22,7 @@ export default class App extends React.Component {
 
         const targetInd = newItems.findIndex((it) => it.id === newItem.id);
 
-        if(targetInd < 0) newItems.push(newItem);
-        else newItems.splice(targetInd, 1);
+        newItems.splice(targetInd, 1);
 
         this.setState({favItems: newItems});
     };

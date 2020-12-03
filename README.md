@@ -139,6 +139,19 @@ UUID merupakan ID sebesar 128-bit yang merupakan hasil dari suatu hash function.
 memiliki class UserRoleServiceImpl.java?<br>
 UserDetailsServiceImpl digunakan untuk menyimpan hasil otentikasi dan otorisasi berupa username dan password yang berasal dari database user karena class UserRoleServiceImpl hanya mengolah data yang ada pada database user. 
 
+## Tutorial 7
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.<br>
+Jawaban: https://docs.google.com/document/d/17i7B5wDhs-EZUsSHqczbX1qokVn1roUUmVT9iVQckm4/edit?usp=sharing <br>
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?<br>
+Props merupakan variable yang di pass oleh parent komponent, berbeda dengan state yang di pass secara langsung oleh suatu komponen itu sendiri.
+3. Apa keuntungan menggunakan component (e.g. List, Item) di React? Berikan contohnya!<br>
+Jawaban: Keuntungan dari penggunaan komponen adalah mengelompokan konten sesuai dengan fungsinya dan dapat di reuse pada file yang berbeda. Contohnya adalah komponen Item merepresentasikan atribut dari suatu movie, kemudian Item di gunakan pada List untuk membuat sekumpulan objek movie.
+4. Menurut kamu, apa saja kelebihan menggunakan React dalam pengembangan web?<br>
+Kelebihan menggunakan React antara lain: dapat membuat tampilan web menjadi lebih dinamis, memiliki banyak library javascript, komponen yang reusable, mudah digunakan. <br>  
+5. Menurut kamu, apa saja kekurangan menggunakan React dalam pengembangan web?<br>
+Kekurangan menggunakan react antara lain: kurangnya dokumentasi, hanya digunakan untuk membuat tampilan/frontend saja
+<br
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?
