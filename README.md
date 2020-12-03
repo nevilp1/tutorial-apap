@@ -112,6 +112,33 @@ Atribut WebClient digunakan untuk menghubungkan service dengan API melalui URl.
 4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? <br>
 ResponseEntity class yang berfungsi untuk mengirimkan HTTP response yang berisi status code, headers dan body. Binding result merupakan suatu interface yang merepresentasikan hasil dari proses binding objek.
 
+## Tutorial 6
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda
+buat) konsep tersebut diimplementasi?<br>
+Otentifikasi merupakan proses pengenalan sebuah user melalui user ID untuk memberikan hak akses kepada user tersebut, sedangkan otorisasi merupakan penentuan akses user terhadap satu atau beberapa action maupun resource tertentu yang ada di dalam sistem. 
+Otentifikasi:
+@Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+    }
+  
+Otorisasi:
+.authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/hotel/**").hasAuthority("RECEPTIONIST")
+                .antMatchers("/user/addUser").hasAuthority("ADMIN")
+                .antMatchers("/kamar/**").hasAuthority("RECEPTIONIST")
+                .anyRequest().authenticated()   
+  
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.<br>
+BCryptPasswordEncoder merupakan sebuah object yang memiliki fungsi encode untuk mengenkripsi String password menjadi kode hash yang unik.
+3. Jelaskan secara singkat apa itu UUID beserta penggunaannya!<br>
+UUID merupakan ID sebesar 128-bit yang merupakan hasil dari suatu hash function. Penggunaan UUID pada tutorial kali adalah sebagai identifier untuk mengidentifikasi suatu objek user.
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah
+memiliki class UserRoleServiceImpl.java?<br>
+UserDetailsServiceImpl digunakan untuk menyimpan hasil otentikasi dan otorisasi berupa username dan password yang berasal dari database user karena class UserRoleServiceImpl hanya mengolah data yang ada pada database user. 
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?

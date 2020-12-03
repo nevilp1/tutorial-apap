@@ -25,12 +25,18 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link active" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
-
-            </div>
-
-            <span th:text="${statusHalaman}" class="nav-item"></span>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav pull-right">
+                <a class="nav-item nav-link active" th:href="@{/user/update}">Change Password</a>
+            </ul>
+            <ul class="navbar-nav pull-right">
+                <a class="nav-item nav-link active" th:href="@{/logout}">Logout</a>
+            </ul>
+            <span class="navbar-text" th:text="${statusHalaman}"></span>
         </div>
     </nav>
 
