@@ -152,6 +152,33 @@ Kelebihan menggunakan React antara lain: dapat membuat tampilan web menjadi lebi
 Kekurangan menggunakan react antara lain: kurangnya dokumentasi, hanya digunakan untuk membuat tampilan/frontend saja
 <br
 
+## Tutorial 8
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian
+melakukan langkah - langkah tersebut?<br>
+Cara menyelesaikan Latihan no 1 adalah dengan men-set state menjadi string kosong setelah menambahkan hotel melalui pemanggilan api <br>
+2. Jelaskan fungsi dari async dan await!<br>
+asynch berguna untuk mengubah suatu function menjadi Asynchronous, await berguna untuk menunda eksekusi baris kode berikutnya sampai suatu proses asynchronous selesai
+3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 7 pada Component Lifecycle
+pada pertanyaan ini.<br>
+https://docs.google.com/document/d/1JobHFnz3nlykVDuKp3De-UN4-WSCbsV0Ag44zaJNO5k/edit?usp=sharing
+<br>
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+componentDidUpdate, componentWillReceiveProps,
+componentWillUnmount.<br>
+Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja
+yang biasanya menggunakan lifecycle method tersebut”.<br>
+Fungsi componentDidMount dijalankan setelah sebuah komponen di-mount. Fungsi ini akan menjalankan rendering tambahan sebelum web ditampilkan. Use case yang menggunakan fungsi ini salah satunya adalah setelah memasukkan komponen modals.
+<br>
+shouldComponentUpdate dijalankan sebelum rendering ketika terdapat props atau state baru yang diterima. Method ini digunakan untuk menentukan apakah suatu komponen dapat diupdate.  Use case yang menggunakan method ini adalah ketika membutuhkan pengecekan setelah terdapat perubahan state atau props.
+<br>
+componentDidUpdate dipanggil setelah suatu update telah dilakukan. Method ini tidak dipanggil saat initial render. Use case yang menggunakan method ini adalah ketika ingin melakukan network request.
+<br>
+componentWillReceiveProps dipanggil sebelum sebuah komponen yang yang telah di-mount menerima props baru. Contoh use case yang menggunakan method ini adalah ketika melakukan setState().
+<br>
+componentWillUnmount dipanggil setelah sebuah komponen dihapus dari DOM. Use case yang menggunakan method ini adalah ketika terjadi proses unsubscribe atau penghapusan komponen. 
+<br>
+
+
 ### What I did not understand
 - [ ] Kapan sebaiknya menggunakan @RequestParam atau @PathVariable ?
 - [ ] Mengapa bisa terjadi kegagalan saat install maven pada intelij?

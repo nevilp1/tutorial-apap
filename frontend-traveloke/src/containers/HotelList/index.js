@@ -16,6 +16,7 @@ class HotelList extends Component {
         namaHotel: "",
         alamat: "",
         nomorTelepon: "",
+        search:"",
     };
     this.handleAddHotel = this.handleAddHotel.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -26,6 +27,9 @@ class HotelList extends Component {
     this.handleDeleteHotel = this.handleDeleteHotel.bind(this);
 
 }
+    updateSearch(event){
+        this.setState({search: event.target.value});
+    }
     componentDidMount() {
         this.loadData();
     }
@@ -108,6 +112,10 @@ class HotelList extends Component {
         
         
     render() {
+    let filteredHotels = this.state.hotels.filter(
+            (hotel) => {
+                return hotel.namaHotel.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    });
     return (
         <div className={classes.hotelList}>
         <h1 className={classes.title}>All Hotels</h1>
@@ -115,7 +123,13 @@ class HotelList extends Component {
         Add Hotel
         </Button>
         <div>
-        {this.state.hotels.map((hotel) => (
+        <div>
+             <input type = "text"
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+                className={classes.textField}/>
+        </div>
+        {filteredHotels.map((hotel) => (
         <Hotel
         key={hotel.id}
         id={hotel.id}
@@ -124,10 +138,11 @@ class HotelList extends Component {
         nomorTelepon={hotel.nomorTelepon}
         handleEdit={()=> this.handleEditHotel(hotel)}
         handleDelete={() => this.handleDeleteHotel(hotel.id)}
+        listKamar={hotel.listKamar}
         />
         ))}
         </div>
-                <Modal
+        <Modal
         show={this.state.isCreate || this.state.isEdit}
         handleCloseModal={this.handleCancel}
         >
